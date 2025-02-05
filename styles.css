@@ -1,0 +1,642 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Workbench&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #2D2D2D;
+    color: white;
+}
+
+.container {
+    min-height: 100vh;
+    padding: 2rem 0 0 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Logo */
+.logo {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: normal;
+    font-family: 'Bebas Neue', sans-serif;
+    line-height: 0.8;
+}
+
+/* Main Content */
+.main-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+    will-change: transform;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+    transition: transform 0.3s ease-out;
+    width: 90%;
+    align-self: center;
+}
+
+.projects-container {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    gap: 2rem;
+    height: 10rem;
+}
+
+.project-card {
+    width: 27%;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateZ(10px);
+}
+
+.project-title {
+    background-color: white;
+    color: #2D2D2D;
+    height: 1.5rem;
+    border-radius: 1rem 1rem 0.5rem 0.5rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Workbench", serif;
+    font-size: 0.875rem;
+    transition: all 0.3s ease;
+}
+
+.project-rectangle {
+    background-color: white;
+    border-radius: 0.5rem;
+    width: 100%;
+    height: 4rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    transform-origin: top;
+}
+
+.project-rectangle:hover {
+    height: 11rem;
+}
+
+/* #rectangleL:hover {
+    background-color: aqua;    
+}
+
+#rectangleR:hover {
+    background-color: rebeccapurple;    
+} */
+
+/* Music Control */
+.music-control {
+    background-color: white;
+    border: none;
+    border-radius: 2rem;
+    padding: 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 15rem;
+    transition: all 0.3s ease;
+    min-width: 3.5rem;
+}
+
+.music-control.playing {
+    width: 10rem;
+    animation: none;
+}
+
+.play-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+    color: #2D2D2D;
+    transition: all 0.3s ease;
+}
+
+/* Visualizer styles */
+.visualizer {
+    display: flex;
+    gap: 0.25rem;
+    height: 1.5rem;
+    align-items: center;
+}
+
+.visualizer.hidden {
+    display: none;
+}
+
+.band {
+    width: 0.25rem;
+    height: 30%;
+    background-color: #2D2D2D;
+    border-radius: 0.125rem;
+    animation: bounce 0.5s ease-in-out infinite;
+}
+
+.band:nth-child(1) { animation-delay: 0.0s; }
+.band:nth-child(2) { animation-delay: 0.1s; }
+.band:nth-child(3) { animation-delay: 0.2s; }
+.band:nth-child(4) { animation-delay: 0.3s; }
+.band:nth-child(5) { animation-delay: 0.4s; }
+.band:nth-child(6) { animation-delay: 0.3s; }
+.band:nth-child(7) { animation-delay: 0.2s; }
+.band:nth-child(8) { animation-delay: 0.1s; }
+.band:nth-child(9) { animation-delay: 0.2s; }
+.band:nth-child(10) { animation-delay: 0.3s; }
+.band:nth-child(11) { animation-delay: 0.4s; }
+.band:nth-child(12) { animation-delay: 0.3s; }
+.band:nth-child(13) { animation-delay: 0.3s; }
+.band:nth-child(14) { animation-delay: 0.2s; }
+.band:nth-child(15) { animation-delay: 0.1s; }
+
+@keyframes bounce {
+    0%, 100% { height: 30%; }
+    50% { height: 100%; }
+}
+
+.hidden {
+    display: none;
+}
+
+@keyframes spin {
+    from {
+        transform: translateX(-50%) rotate(0deg);
+    }
+    to {
+        transform: translateX(-50%) rotate(360deg);
+    }
+}
+
+/* Navigation */
+.navigation {
+    display: flex;
+    justify-content: space-between;
+    background-color: #222222;
+    align-items: center;
+    width: 100%;
+    height: 5rem;
+    padding: 0 6rem 0 6rem;
+}
+
+.nav-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.name {
+    margin-left: 1rem;
+    font-size: 1.875rem;
+    font-weight: normal;
+    font-family: 'Bebas Neue', sans-serif;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+    font-size: 1.25rem;
+    font-weight: lighter;
+    font-family: 'Bebas Neue', sans-serif;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #D1D1D1;
+}
+
+/* Add these animation keyframes */
+@keyframes blink {
+    0%, 100% { height: 3rem; }
+    50% { height: 0.1rem; }
+}
+
+@keyframes happy {
+    0%, 100% { height: 3rem; border-radius: 0.5rem; }
+    10%, 90% { height: 7rem; border-radius: 2rem 2rem 0.5rem 0.5rem; }
+}
+
+@keyframes sad-right {
+    0%, 100% { height: 3rem; border-radius: 0.5rem; transform: rotate(0deg);}
+    10%, 90% { height: 2rem; border-radius: 0.5rem 0.5rem 2rem 2rem; transform: rotate(2deg);}
+}
+
+@keyframes sad-left {
+    0%, 100% { height: 3rem; border-radius: 0.5rem; transform: rotate(0deg);}
+    10%, 90% { height: 2rem; border-radius: 0.5rem 0.5rem 2rem 2rem; transform: rotate(-2deg);}
+}
+
+@keyframes sad-title-left {
+    0%, 100% { transform: rotate(0deg); }
+    10%, 90% { transform: rotate(-5deg); }
+}
+
+@keyframes sad-title-right {
+    0%, 100% { transform: rotate(0deg); }
+    10%, 90% { transform: rotate(5deg); }
+}
+
+@keyframes angry-left {
+    0%, 100% { height: 3rem; border-radius: 0.5rem; transform: rotate(0deg); }
+    10%, 90% { height: 4rem; border-radius: 0.5rem 5rem 0.5rem 5rem; transform: rotate(2deg);}
+}
+
+@keyframes angry-right {
+    0%, 100% { height: 3rem; border-radius: 0.5rem; transform: rotate(0deg); }
+    10%, 90% { height: 4rem; border-radius: 5rem 0.5rem 5rem 0.5rem; transform: rotate(-2deg); }
+}
+
+@keyframes angry-title-left {
+    0%, 100% { transform: rotate(0deg); }
+    10%, 90% { transform: rotate(5deg); }
+}
+
+@keyframes angry-title-right {
+    0%, 100% { transform: rotate(0deg); }
+    10%, 90% { transform: rotate(-5deg); }
+}
+
+@keyframes weird-left {
+    0%, 100% { height: 3rem; border-radius: 0.5rem; transform: rotate(0deg); }
+    10%, 90% { height: 2rem; border-radius: 1.5rem 1.5rem 1.5rem 1.5rem; transform: rotate(-1deg);}
+}
+
+@keyframes weird-right {
+    0%, 100% { height: 3rem; border-radius: 0.5rem; transform: rotate(0deg); }
+    10%, 90% { height: 4rem; border-radius: 5rem 5rem 5rem 5rem; transform: rotate(1deg); }
+}
+
+@keyframes weird-title-left {
+    0%, 100% { transform: rotate(0deg); }
+    10%, 90% { transform: rotate(3deg); }
+}
+
+@keyframes weird-title-right {
+    0%, 100% { transform: rotate(0deg); }
+    10%, 90% { transform: rotate(5deg); }
+}
+
+/* Animation classes */
+.blink .project-rectangle {
+    animation: blink 0.1s ease-in-out;
+}
+
+.happy .project-rectangle {
+    animation: happy 4s ease-in-out;
+}
+
+.sad #brow1 {
+    animation: sad-title-left 4s ease-in-out;
+}
+
+.sad #brow2 {
+    animation: sad-title-right 4s ease-in-out;
+}
+
+.sad #rectangleR {
+    animation: sad-right 4s ease-in-out;
+}
+
+.sad #rectangleL {
+    animation: sad-left 4s ease-in-out;
+}
+
+.angry #brow1 {
+    animation: angry-title-left 4s ease-in-out;
+}
+
+.angry #brow2 {
+    animation: angry-title-right 4s ease-in-out;
+}
+
+.angry #rectangleR{
+    animation: angry-right 4s ease-in-out;
+}
+
+.angry #rectangleL{
+    animation: angry-left 4s ease-in-out;
+}
+
+.weird #brow1 {
+    animation: weird-title-left 4s ease-in-out;
+}
+
+.weird #brow2 {
+    animation: weird-title-right 4s ease-in-out;
+}
+
+.weird #rectangleR{
+    animation: weird-right 4s ease-in-out;
+}
+
+.weird #rectangleL{
+    animation: weird-left 4s ease-in-out;
+}
+
+/* Add these styles for the opened state */
+.project-rectangle.opened {
+    position: absolute;
+    width: 400px;
+    height: 400px !important;
+    top: 50%;
+    transform-origin: center;
+    z-index: 100;
+    transition: all 0.5s ease;
+}
+
+/* Left alignment */
+.project-rectangle.opened.left {
+    left: 25%;
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+
+/* Right alignment */
+.project-rectangle.opened.right {
+    right: 25%;
+    transform: translate(50%, -50%) rotate(45deg);
+}
+
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 99;
+}
+
+.overlay.active {
+    display: block;
+}
+
+/* ------------------------- Projects ----- */
+
+.projects {
+    height: 100vh;
+    padding: 1rem 0 0 10rem;
+    background-color: #222222;
+    overflow: hidden;
+}
+
+.sentence {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.6rem;
+}
+
+.title {
+    font-size: 1.6rem;
+    font-family: "Pacifico", serif;
+    background: linear-gradient(to right, #48F842, #52F2B2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+    transform: rotate(-15deg) translateX(-3.9rem) translateY(-0.5rem);
+    filter: drop-shadow(0 0 5px #000000ae);
+}
+#title2 {
+    background: linear-gradient(to right, #F84266, #EAF252);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+#title3 {
+    background: linear-gradient(to right, #B842F8, #F252B8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.project-cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 20rem);
+    grid-template-rows: 10rem 10rem 10rem;
+    gap: 1rem;
+    width: 100%;
+    height: auto;
+    margin: 1rem 0 0 0;
+}
+
+.project-card-small {
+    display: flex;
+    width: 20rem;
+    height: 10rem;
+    position: relative;
+    transition: all 0.3s ease;
+    background-color: #7C4C7E;
+    border-radius: 0.5rem;
+}
+
+.project-card-image-small {
+    display: flex;
+    width: 50%;
+    align-items: center;
+    justify-content: center;
+}
+
+.project-card-image-small img {
+    width: 90%;
+    height: 90%;
+    object-fit: cover;
+    background-color: white;
+    border-radius: 0.5rem;
+}
+
+.project-card-info-small {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+
+.project-card-title-small {
+    font-family: 'Bebas Neue', serif;
+    font-size: 1.4rem;
+    color: white;
+    padding: .5rem 0 0 0.5rem;
+}
+
+.project-card-desc-small {
+    font-family: "Josefin Sans", serif;
+    font-size: 0.7rem;
+    padding: .5rem;
+    font-weight: 300;
+}
+
+.project-view-button {
+    width: 5rem;
+    height: 2rem;
+    align-self: flex-end;
+    margin: auto 0.7rem 0.7rem 0;
+    border: none;
+    border-radius: 0.5rem;
+    font-family: 'Bebas Neue', serif;
+    font-size: 1rem;
+    color: #F9D1FA;
+    background-color: #E53BEB;
+}
+
+.project-card-large {
+    display: flex;
+    width: 20rem;
+    height: 21rem;
+    position: relative;
+    transition: all 0.3s ease;
+    background-color: #3B616E;
+    border-radius: 0.5rem;
+}
+
+.project-card-left-large {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    align-items: center;
+}
+.project-card-left-large img {
+    width: 10.6rem;
+    height: 10.6rem;
+    margin: 0.7rem 0 0.2rem 0;
+    object-fit: cover;
+    background-color: white;
+    border-radius: 0.5rem;
+}
+.project-card-info-large {
+    display: flex;
+    flex-direction: column;
+}
+.project-card-title-large {
+    font-family: 'Bebas Neue', serif;
+    font-size: 1.4rem;
+    color: white;
+    padding: .5rem 0 0 0.5rem;
+}
+
+.project-card-desc-large {
+    font-family: "Josefin Sans", serif;
+    font-size: 0.8rem;
+    padding: .5rem 0.5rem 0 0.5rem;
+    font-weight: 300;
+}
+
+.project-card-right-large {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    align-items: flex-start;
+}
+
+.project-card-right-large img {
+    width: 7.2rem;
+    height: 7.2rem;
+    margin: 0.7rem 0 0.2rem 0;
+    object-fit: cover;
+    background-color: white;
+    border-radius: 0.5rem;
+}
+
+#projbutton2 {
+    color: #D1F0FA;
+    background-color: #2CB8E8;
+}
+
+#cardlarge1 {
+    grid-row: 2;
+    grid-column: 1;
+}
+#cardsmall2 {
+    grid-row: 3;
+    grid-column: 2;
+}
+
+/* ------------------------- About me ----- */
+
+.aboutme {
+    height: 100vh;
+    padding: 1rem 0 0 10rem;
+    background-color: #171717;
+}
+
+.aboutme-container {
+    display: grid;
+    grid-template-columns: 1fr 5fr 2fr;
+    grid-template-rows: 1fr;
+    margin: 5rem 0 0 0;
+}
+
+.skills-section {
+    display: flex;
+    flex-direction: column;
+}
+.bullet-point {
+    display: flex;
+    align-items: center;
+    background-color: #D9D9D9;
+    width: 7rem;
+    height: 2.5rem;
+    border-radius: 5rem;
+    color: #292929;
+    font-family: 'Bebas Neue', serif;
+    font-size: 1.2rem;
+    margin: 0.4rem;
+}
+.inverse {
+    justify-content: flex-end;
+    align-self: flex-end;
+}
+.bullet {
+    background-color: #292929;
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 1rem;
+    margin: 0 0.5rem 0 0.5rem;
+}
+
+.skills {
+    align-self: center;
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+    margin: 0.5rem 0 0 0;
+}
+.skill-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 4rem;
+    height: 4rem;
+    border-radius: 1.5rem;
+    background-color: #D9D9D9;
+}
+.item {
+    background-color: #292929;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 1rem;
+}
+
+/* ------------------------- Contact ----- */
+
+.contactme {
+    height: 100vh;
+    padding: 1rem 0 0 10rem;
+    background-color: #171717;
+}
